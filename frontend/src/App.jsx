@@ -272,14 +272,20 @@ const LandingPage = ({ onStart, onLogin }) => {
     setCanViewPdf(!isMobile);
   }, []);
 
+  // ... inside LandingPage component ...
+
   const handlePresentationClick = () => {
-    const pdfUrl = "/presentation.pdf"; 
+    // 1. Change the filename here
+    const pdfUrl = "/CV_Presentation.pdf"; 
+    
     if (canViewPdf) {
         window.open(pdfUrl, '_blank');
     } else {
         const link = document.createElement('a');
         link.href = pdfUrl;
-        link.download = "AKTP_Presentation.pdf";
+
+        link.download = "CV_Presentation.pdf"; 
+        
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
